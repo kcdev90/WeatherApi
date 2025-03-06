@@ -1,4 +1,16 @@
-.gradle
-.idea
-/build
+# Gradle files
+.gradle/
+build/
+
+# IntelliJ/Android Studio files
+.idea/
+*.iml
+
+# Local environment files
 local.properties
+
+# Cache and generated files
+*.log
+*.apk
+*.map
+*.keystore
