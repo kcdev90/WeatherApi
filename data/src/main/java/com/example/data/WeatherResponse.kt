@@ -6,7 +6,7 @@ public data class WeatherResponse(
     val weather: List<Weather>,
     val main: Main,
     val wind: Wind,
-    val rain: Rain?
+    val rain: Rain? // Will be null unless weather.main is "Rain"
 )
 
 public data class Weather(

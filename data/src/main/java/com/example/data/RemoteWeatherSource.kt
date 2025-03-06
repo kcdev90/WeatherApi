@@ -19,6 +19,7 @@ class RemoteWeatherSource {
         api.getWeather(
             lat = city.lat,
             lon = city.lon,
-            apiKey = API_KEY
+            apiKey = API_KEY,
+            units = "imperial"
         )
 }
