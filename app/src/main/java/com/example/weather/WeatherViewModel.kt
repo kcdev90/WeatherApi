@@ -30,6 +30,7 @@ class WeatherViewModel : ViewModel() {
         val myCities = City.entries
 
         viewModelScope.launch {
+            // Open Weather API doesn't support bulk request
             myCities.forEach { city ->
                 repository.getWeatherOrNull(city)?.let { response ->
                     _viewState.update { state ->

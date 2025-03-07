@@ -17,18 +17,16 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
 import com.example.weather.WeatherViewModel
 import com.example.weather.model.CityDetails
-import com.example.weather.navigation.CityDetailsRoute
 
 @Composable
 internal fun HomeScreen(
     viewModel: WeatherViewModel,
     onCityClick: (CityDetails) -> Unit
-//    navController: NavController
 ) {
     val viewState by viewModel.viewState.collectAsState()
+
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
@@ -47,12 +45,7 @@ private fun WeatherSummary(
     onCityClick: (CityDetails) -> Unit
 ) {
     Card(
-        onClick = {
-            onCityClick(cityDetails)
-//            navController.navigate(
-//                CityDetailsRoute(cityDetails = cityDetails)
-//            )
-        },
+        onClick = { onCityClick(cityDetails) },
         shape = CardDefaults.elevatedShape,
         colors = CardDefaults.elevatedCardColors(),
         elevation = CardDefaults.cardElevation(4.dp),

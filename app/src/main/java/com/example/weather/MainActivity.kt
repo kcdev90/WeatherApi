@@ -17,6 +17,8 @@ import kotlin.reflect.typeOf
 
 class MainActivity : AppCompatActivity() {
 
+    private val weatherViewModel = WeatherViewModel()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -28,7 +30,7 @@ class MainActivity : AppCompatActivity() {
             ) {
                 composable<HomeRoute> {
                     HomeScreen(
-                        viewModel = WeatherViewModel(),
+                        viewModel = weatherViewModel,
                         onCityClick = { city ->
                             navController.navigate(
                                 CityDetailsRoute(cityDetails = city)
