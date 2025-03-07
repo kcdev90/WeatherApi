@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.data.City
 import com.example.data.WeatherRepository
+import com.example.weather.model.CityDetails
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
@@ -13,19 +14,6 @@ class WeatherViewModel : ViewModel() {
 
     data class ViewState(
         val cities: MutableList<CityDetails> = mutableListOf()
-    )
-
-    data class CityDetails(
-        val name: String,
-        val weather: String,
-        val weatherDescription: String,
-        val temperature: Double,
-        val feelsLike: Double,
-        val low: Double,
-        val high: Double,
-        val humidity: Int,
-        val wind: Double,
-        val rain: Double?
     )
 
     private val _viewState = MutableStateFlow(ViewState())
