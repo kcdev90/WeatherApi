@@ -31,13 +31,29 @@ android {
     buildFeatures {
         compose = true
     }
+
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.3"
+    }
+
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+        }
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = "17"
     }
 }
 
 dependencies {
     implementation(project(":data"))
+
+    testImplementation(project(":data"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -45,8 +61,11 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
-    testImplementation(libs.junit)
+
+    testImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.junit)
+
+    testImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.espresso.core)
 
     implementation(libs.androidx.activity.compose)
@@ -54,4 +73,10 @@ dependencies {
     implementation(libs.androidx.compose.material3)
     implementation(libs.navigation.compose)
     implementation(libs.kotlinx.serialization.json)
+    testImplementation(libs.compose.ui.test.junit4)
+    testImplementation(libs.mockk)
+    debugImplementation(libs.androidx.ui.test.manifest)
+
+    testImplementation(libs.junit)
+    testImplementation(libs.androidx.runner)
 }

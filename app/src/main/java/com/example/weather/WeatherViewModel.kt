@@ -10,7 +10,9 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-class WeatherViewModel : ViewModel() {
+class WeatherViewModel(
+    internal val repository: WeatherRepository = WeatherRepository()
+) : ViewModel() {
 
     data class ViewState(
         val cities: MutableList<CityDetails> = mutableListOf()
@@ -19,13 +21,11 @@ class WeatherViewModel : ViewModel() {
     private val _viewState = MutableStateFlow(ViewState())
     val viewState = _viewState.asStateFlow()
 
-    private val repository = WeatherRepository()
-
     init {
         loadWeather()
     }
 
-    private fun loadWeather() {
+    internal fun loadWeather() {
         // TODO: Store in SharedPreferences?
         val myCities = City.entries
 

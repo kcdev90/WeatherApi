@@ -1,4 +1,9 @@
-package com.example.data
+package com.example.weather
+
+import com.example.data.Main
+import com.example.data.Weather
+import com.example.data.WeatherResponse
+import com.example.data.Wind
 
 public val FAKE_VALID_WEATHER_RESPONSE = WeatherResponse(
     weather = listOf(
